@@ -4,8 +4,20 @@
 .LINK https://github.com/ryandcoates/BCC17MAR17
 
 #>
-# I already have Node installed, but you can deploy it with a few words
-#cinst nodejs -y
+Set-Location C:\Data\BCC17MAR17
+
+. ./function-New-GitHubRepo.ps1
+
+$gitToken = Import-Clixml .\gitToken.xml
+
+#region Excel automation
+get-process | Where Company | Export-Excel `
+                                -Path C:\temp\process.xlsx `
+                                -Show -IncludePivotTable -PivotRows Company `
+                                -PivotData @{Handles="sum"} `
+                                -IncludePivotChart -ChartType PieExploded3D
+#endregion
+
 
 # Lets make a project scaffold generator in PowerShell
 function New-NodeProject {
@@ -69,6 +81,4 @@ function Make-Code {
         Write-Warning "Not Done yet, code more"
     }
 }
-Set-Location C:\Data\BCC17MAR17
-. ./function-New-GitHubRepo.ps1
-$gitToken = Import-Clixml .\gitToken.xml
+

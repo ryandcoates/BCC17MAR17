@@ -1,4 +1,5 @@
-<# Powershell and API Demos for Boise Code Camp 2017
+<# Windows Powershell <3 @ Boise Code Camp 2017
+.FILE Demo3-PowerShellAndAPIs.ps1
 .AUTHOR Ryan Coates
 .LINK https://github.com/ryandcoates/BCC17MAR17
 

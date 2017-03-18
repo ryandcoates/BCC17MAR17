@@ -1,4 +1,11 @@
-﻿# Demo 1: Using PowerShell
+﻿<# Windows Powershell <3 @ Boise Code Camp 2017
+.FILE Demo1-PowerShellWalkthrough.ps1
+.AUTHOR Ryan Coates
+.LINK https://github.com/ryandcoates/BCC17MAR17
+
+#>
+
+# Demo 1: Using PowerShell
 cls
 
 #region Cmdlet Structure
@@ -125,10 +132,3 @@ Install-Module dbatools
 
 #endregion
 
-#region Excel automation
-get-process | Where Company | Export-Excel `
-                                -Path C:\temp\process.xlsx `
-                                -Show -IncludePivotTable -PivotRows Company `
-                                -PivotData @{Handles="sum"} `
-                                -IncludePivotChart -ChartType PieExploded3D
-#endregion
